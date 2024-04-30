@@ -1,9 +1,8 @@
 package com.example.apidury.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
@@ -18,8 +17,10 @@ public class Category {
     private String id;
     private String name;
     private String color;
-
-    private ArrayList<Note> categoriedNotes = new ArrayList<Note>();
+    @DBRef
+    private List<Note> categoryNotes;
+    @DBRef
+    private User user;
 
     public Category(){}
 
