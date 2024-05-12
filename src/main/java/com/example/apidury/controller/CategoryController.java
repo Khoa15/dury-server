@@ -1,6 +1,7 @@
 package com.example.apidury.controller;
 
 import com.example.apidury.model.Category;
+import com.example.apidury.model.Note;
 import com.example.apidury.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,6 +19,11 @@ import java.util.Map;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
+
+//    @PostMapping
+//    public Category addCategory(@RequestBody Category category){
+//        return categoryService.createCategory(category);
+//    }
 
     @GetMapping
     public List<Category> loadAll(){
