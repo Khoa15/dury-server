@@ -24,9 +24,53 @@ public class Category {
 
     public Category(){}
 
-    public Category(String name, String color) {
-        this.id = id;
+    public Category(String name, String color, String userId) {
         this.name = name;
         this.color = color;
+        this.user = new User();
+        this.user.setId(userId);
     }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Note> getCategoryNotes() {
+        return categoryNotes;
+    }
+
+    public void setCategoryNotes(List<Note> categoryNotes) {
+        this.categoryNotes = categoryNotes;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
+
 }

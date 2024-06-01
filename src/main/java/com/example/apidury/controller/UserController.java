@@ -4,7 +4,6 @@ import com.example.apidury.model.User;
 import com.example.apidury.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,5 +32,10 @@ public class UserController {
         }catch(Exception e){
             throw new RuntimeException("Your username is already used!");
         }
+    }
+
+    @PostMapping("/signin")
+    public Optional<User> getUser(@RequestBody User user){
+        return userService.signin(user.getUsername(), user.getPassword());
     }
 }

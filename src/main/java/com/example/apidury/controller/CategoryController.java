@@ -31,7 +31,16 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<Category> updateCategory(@PathVariable Category category){
+    public ResponseEntity<Category> insertCategory(@RequestBody Category category){
+        try{
+            return new ResponseEntity<Category>(categoryService.createCategory(category), HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping
+    public ResponseEntity<Category> updateCategory(@RequestBody Category category){
         try{
             return new ResponseEntity<Category>(categoryService.updateCategory(category), HttpStatus.OK);
         }catch (Exception e){

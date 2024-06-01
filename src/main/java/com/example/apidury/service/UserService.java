@@ -50,4 +50,7 @@ public class UserService {
         userRepository.delete(user);
     }
 
+    public Optional<User> signin(String username, String password) {
+        return userRepository.findByUsernameAndPassword(username, password);
+    }
 }
